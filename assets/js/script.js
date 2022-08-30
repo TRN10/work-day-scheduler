@@ -2,3 +2,4 @@
 
 var leadEl = $(".lead");
 
+// Check state of page?
