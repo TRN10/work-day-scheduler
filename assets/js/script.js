@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     // Displays current date and time at top of page
 
-    var currentDateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-    $("#currentDay").text(currentDateTime);
+    $('#currentDay').text(moment().format('dddd, MMMM Do'));
+
 
     // add event listener for save icons
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
     });
 
     function hourUpdater() {
-        // get current number of hours
+        // get number of the current hour
         var currentHour = moment().hours();
 
 
@@ -44,6 +44,9 @@ $(document).ready(function () {
 
     hourUpdater();
 
+    // interval to check if current time needs updating
+    var interval = setInterval(hourUpdater, 15000);
+
     // load saved data from localStorage
     $('#hour-9 .description').val(localStorage.getItem('hour-9'));
     $('#hour-10 .description').val(localStorage.getItem('hour-10'));
@@ -54,7 +57,6 @@ $(document).ready(function () {
     $('#hour-15 .description').val(localStorage.getItem('hour-15'));
     $('#hour-16 .description').val(localStorage.getItem('hour-16'));
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
-
 
 
 });
