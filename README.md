@@ -6,3 +6,5 @@ This application is a simple work day scheduler. The page displays the current d
 The HTML and CSS files were provided for this challenge. The HTML needed to be modified to make the application work as specified with the CSS file. The CSS file was complete and gave clues as to how to structure the HTML file using JQuery and Bootstrap. This challenge was a consolidation of the concepts learned in the previous week with a focus on using third party APIs JQuery, Bootstrap and Moment JS.
 
 ![work-day-scheduler-screenshot](assets/images/work-day-scheduler.png)
+
+https://trn10.github.io/work-day-scheduler/
