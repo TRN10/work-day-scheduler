@@ -1,10 +1,42 @@
-// Display current time and day at top of page
+// Displays current date and time at top of page
 
-// var currentDayEl = $("#currentDay");
+var currentDateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+$("#currentDay").text(currentDateTime);
 
-// currentDayEl.text(moment().format('LLL');)
+// add event listener for save icons
 
-// Check state of page?
+$('.saveBtn').on('click', function () {
+    // get values
+    var value = $(this).siblings('.description').val();
+    var time = $(this).parent().attr('id');
 
-var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-$("#currentDay").text(time);
+    // save to localStorage
+
+    localStorage.setItem(time, value);
+
+});
+
+function hourUpdater() {
+    var currentHour = moment().hours();
+
+
+    // loop over time blocks
+    $('.time-block').each(function () {
+        var blockHour = parseInt($(this).attr('id').split('-')[1]);
+
+        // check if time has passed time of time block
+
+        if (blockHour < currentHour) {
+            $(this).addClass('past');
+        } else if (blockHour === currentHour) {
+            $(this).removeClass('past');
+            $(this).addClass('present');
+        } else {
+            $(this).removeClass('past');
+            $(this).removeClass('present');
+            $(this).addClass('future');
+        }
+    });
+}
+
+hourUpdater();
